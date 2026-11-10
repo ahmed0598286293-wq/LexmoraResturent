@@ -15,8 +15,16 @@
 [dir="rtl"] .nav-links{direction:rtl}
 [dir="rtl"] .dash{direction:rtl}
 [dir="rtl"] .dash-main{direction:rtl}
-[dir="rtl"] .panel-head,.panel{ text-align: right; }
+[dir="rtl"] .panel-head,[dir="rtl"] .panel{ text-align: right; }
 [dir="rtl"] .dish-card .info, [dir="rtl"] .dish-card .row{direction:rtl}
-[dir="rtl"] .cart-lines,.cart-totals{direction:rtl}
+[dir="rtl"] .cart-lines,[dir="rtl"] .cart-totals{direction:rtl}
 [dir="rtl"] .footer .foot{direction:rtl}
 [dir="rtl"] input,[dir="rtl"] textarea,[dir="rtl"] select{direction:rtl}
+
+/* ---- Fixes: Arabic empty cart, bidi numbers, mobile nav sign-in ---- */
+[lang="ar"] .cart-lines:empty:after{content:'سلتك فارغة. استكشف القائمة لإضافة الأطباق.'}
+[dir="rtl"] .stats b{direction:ltr;unicode-bidi:isolate;text-align:right}
+bdi[dir="ltr"]{unicode-bidi:isolate}
+.nav-links .nav-signin{display:none}
+@media(max-width:640px){.nav-links .nav-signin{display:block;color:var(--gold-text);font-weight:700}}
+.chat,.chat-form,.chat-log{min-width:0}.chat-form textarea{min-width:0;width:100%}

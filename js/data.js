@@ -1,4 +1,4 @@
-window.LEXMORA_MENU = [
+window.LEXMORE_MENU = [
   {
     "id": 1,
     "en": "Hummus",
