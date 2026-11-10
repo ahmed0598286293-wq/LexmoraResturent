@@ -1,23 +1,25 @@
-/* =========================================
-   LEXMORA — Demo-specific refinements
-========================================= */
 
-/* Hero */
+/* =========================================================
+   LEXMORA — DEMO ONLY
+   This file depends on style.css.
+   Do not redefine global theme tokens or base components.
+========================================================= */
+
+/* ---------- Hero image ---------- */
+
 .hero-food {
     position: absolute;
     top: 80px;
-    left: 4%;
+    inset-inline-start: 4%;
     width: min(92%, 650px);
     height: 560px;
     object-fit: contain;
     filter: drop-shadow(0 35px 55px #0009);
-}
-
-.visual {
-    min-width: 0;
+    pointer-events: none;
 }
 
 .hero .visual {
+    min-width: 0;
     background: radial-gradient(
         ellipse at center,
         color-mix(in srgb, var(--gold) 10%, transparent),
@@ -25,12 +27,15 @@
     );
 }
 
+/* ---------- Demo typography ---------- */
+
 .tiny {
     font-size: 11px;
     text-align: center;
 }
 
-/* Forms */
+/* ---------- Demo forms ---------- */
+
 .demo-form {
     align-content: start;
 }
@@ -40,8 +45,9 @@
     grid-column: 1 / -1;
 }
 
-/* Page */
-.page-head {
+/* ---------- Menu page ---------- */
+
+.menu-page .page-head {
     min-height: 210px;
 }
 
@@ -49,9 +55,9 @@
     padding-top: 20px;
 }
 
-/* Dish cards */
+/* ---------- Dish cards ---------- */
+
 .dish-card .art {
-    position: relative;
     overflow: hidden;
 }
 
@@ -90,8 +96,7 @@
     gap: 12px;
 }
 
-/* Tags */
-.tag {
+.dish-card .tag {
     position: absolute;
     z-index: 4;
     top: 14px;
@@ -103,13 +108,14 @@
     font-size: 10px;
 }
 
-/* Cart */
+/* ---------- Cart ---------- */
+
 .cart-lines:empty::after {
     content: "Your cart is empty. Explore the menu to add dishes.";
     display: block;
-    padding: 35px 16px;
-    color: var(--muted);
     text-align: center;
+    color: var(--muted);
+    padding: 35px;
 }
 
 .line-art img {
@@ -120,16 +126,14 @@
     border-radius: 14px;
 }
 
-.mini-lines {
-    margin: 18px 0;
-}
+/* ---------- Dashboard ---------- */
 
-/* Dashboard */
 .dash-main > .panel-head {
     padding-bottom: 4px;
 }
 
-/* Sections */
+/* ---------- Demo sections ---------- */
+
 .reserve .panel {
     padding: 28px;
 }
@@ -138,13 +142,8 @@
     padding: 30px;
 }
 
-.offer,
-.reserve,
-.contact-sec {
-    margin: 35px 15px;
-}
+/* ---------- Demo navigation ---------- */
 
-/* Navigation */
 .nav .brand small {
     font-size: 7px;
 }
@@ -153,15 +152,16 @@
     white-space: nowrap;
 }
 
-/* Chat */
+/* ---------- Chat ---------- */
+
 .chat-log {
     min-height: 250px;
     overflow-wrap: anywhere;
 }
 
-/* =========================================
-   RTL — Arabic layout
-========================================= */
+/* =========================================================
+   RTL — Demo-specific only
+========================================================= */
 
 [dir="rtl"] body {
     font-family: "Cairo", sans-serif;
@@ -172,10 +172,6 @@
 [dir="rtl"] .actions,
 [dir="rtl"] .row,
 [dir="rtl"] .qty {
-    direction: rtl;
-}
-
-[dir="rtl"] .nav-links {
     direction: rtl;
 }
 
@@ -215,16 +211,8 @@
     font-family: "Cairo", sans-serif;
 }
 
-[dir="rtl"] .panel-head,
-[dir="rtl"] .panel {
-    text-align: right;
-}
-
 [dir="rtl"] .dish-card .info,
-[dir="rtl"] .dish-card .row {
-    direction: rtl;
-}
-
+[dir="rtl"] .dish-card .row,
 [dir="rtl"] .cart-lines,
 [dir="rtl"] .cart-totals {
     direction: rtl;
@@ -234,45 +222,35 @@
     direction: rtl;
 }
 
-/* =========================================
-   Tablet
-========================================= */
+/* =========================================================
+   Responsive — Demo-specific
+========================================================= */
 
 @media (max-width: 1000px) {
     .hero-food {
         top: 0;
-        left: 0;
+        inset-inline-start: 0;
         width: min(100%, 600px);
         height: 450px;
     }
-
-    .hero .visual {
-        height: 480px;
-    }
 }
-
-/* =========================================
-   Mobile
-========================================= */
 
 @media (max-width: 640px) {
     .hero-food {
         top: 10px;
-        left: 50%;
+        inset-inline-start: 50%;
         width: min(100%, 500px);
         height: 370px;
         transform: translateX(-50%);
     }
 
-    .hero .visual {
-        height: 390px;
-        min-height: 0;
+    .offer {
+        margin: 35px 15px;
     }
 
-    .offer,
     .reserve,
     .contact-sec {
-        margin: 28px 12px;
+        margin: 35px 15px;
     }
 
     .reserve .panel,
@@ -280,19 +258,11 @@
         padding: 20px 16px;
     }
 
-    .dash-side {
-        max-width: 100%;
-        overflow-x: auto;
-    }
-
     .dash-side nav {
-        display: grid;
         grid-auto-flow: column;
         grid-auto-columns: max-content;
-        gap: 8px;
         overflow-x: auto;
         overscroll-behavior-x: contain;
-        padding-bottom: 8px;
     }
 
     .dash-side nav a {
@@ -306,27 +276,11 @@
     .dish-card .info {
         padding: 16px;
     }
-
-    .page-head {
-        min-height: 160px;
-    }
-
-    .chat-log {
-        min-height: 200px;
-    }
 }
-
-/* =========================================
-   Small phones
-========================================= */
 
 @media (max-width: 380px) {
     .hero-food {
         height: 320px;
-    }
-
-    .hero .visual {
-        height: 340px;
     }
 
     .dish-card .art img {
@@ -338,19 +292,9 @@
         height: 52px;
     }
 
-    .tag {
+    .dish-card .tag {
         top: 10px;
         inset-inline-start: 10px;
         padding: 5px 8px;
-    }
-}
-
-/* =========================================
-   Accessibility
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-    .dish-card .art img {
-        transition: none;
     }
 }
